@@ -6,7 +6,7 @@ from launch_ros.actions import Node
 
 # this is the function launch  system will look for
 def generate_launch_description():
-
+    #test
     ####### DATA INPUT ##########
     urdf_file = 'box_bot_geometric.urdf'
     package_description = "my_box_bot_description"
