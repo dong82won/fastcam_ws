@@ -1,0 +1,55 @@
+[0.010s] Invoking command in '/home/won/fastcam_ws/build/mybot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/won/fastcam_ws/src/mybot_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/won/fastcam_ws/install/mybot_description
+[0.044s] -- The C compiler identification is GNU 11.4.0
+[0.079s] -- The CXX compiler identification is GNU 11.4.0
+[0.084s] -- Detecting C compiler ABI info
+[0.127s] -- Detecting C compiler ABI info - done
+[0.132s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.132s] -- Detecting C compile features
+[0.132s] -- Detecting C compile features - done
+[0.134s] -- Detecting CXX compiler ABI info
+[0.184s] -- Detecting CXX compiler ABI info - done
+[0.188s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.189s] -- Detecting CXX compile features
+[0.189s] -- Detecting CXX compile features - done
+[0.191s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.280s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.315s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.334s] -- Found urdf: 2.6.1 (/opt/ros/humble/share/urdf/cmake)
+[0.371s] -- Found xacro: 2.1.1 (/opt/ros/humble/share/xacro/cmake)
+[0.372s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.418s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.420s] -- Added test 'lint_cmake' to check CMake code style
+[0.421s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.421s] -- Added test 'xmllint' to check XML markup files
+[0.421s] -- Configuring done
+[0.424s] -- Generating done
+[0.425s] -- Build files have been written to: /home/won/fastcam_ws/build/mybot_description
+[0.428s] Invoked command in '/home/won/fastcam_ws/build/mybot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/won/fastcam_ws/src/mybot_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/won/fastcam_ws/install/mybot_description
+[0.429s] Invoking command in '/home/won/fastcam_ws/build/mybot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/won/fastcam_ws/build/mybot_description -- -j16 -l16
+[0.454s] Invoked command in '/home/won/fastcam_ws/build/mybot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/won/fastcam_ws/build/mybot_description -- -j16 -l16
+[0.455s] Invoking command in '/home/won/fastcam_ws/build/mybot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/won/fastcam_ws/build/mybot_description
+[0.460s] -- Install configuration: ""
+[0.460s] -- Execute custom install script
+[0.460s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/urdf/mybot.urdf
+[0.466s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/meshes/base_link.dae
+[0.472s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/meshes/meshes.zip
+[0.478s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/meshes/wheel_type1.dae
+[0.484s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/meshes/wheel_type2.dae
+[0.490s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/launch/display_robot.launch.py
+[0.495s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/rviz/urdf_vis.rviz
+[0.500s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/ament_index/resource_index/package_run_dependencies/mybot_description
+[0.506s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/ament_index/resource_index/parent_prefix_path/mybot_description
+[0.511s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/environment/ament_prefix_path.sh
+[0.516s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/environment/ament_prefix_path.dsv
+[0.522s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/environment/path.sh
+[0.527s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/environment/path.dsv
+[0.532s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/local_setup.bash
+[0.537s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/local_setup.sh
+[0.543s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/local_setup.zsh
+[0.548s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/local_setup.dsv
+[0.553s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/package.dsv
+[0.558s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/ament_index/resource_index/packages/mybot_description
+[0.565s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/cmake/mybot_descriptionConfig.cmake
+[0.570s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/cmake/mybot_descriptionConfig-version.cmake
+[0.576s] -- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/package.xml
+[0.586s] Invoked command in '/home/won/fastcam_ws/build/mybot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/won/fastcam_ws/build/mybot_description

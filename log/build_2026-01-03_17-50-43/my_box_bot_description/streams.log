@@ -1,0 +1,66 @@
+[0.011s] Invoking command in '/home/won/fastcam_ws/build/my_box_bot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/won/fastcam_ws/src/my_box_bot_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/won/fastcam_ws/install/my_box_bot_description
+[0.045s] -- The C compiler identification is GNU 11.4.0
+[0.079s] -- The CXX compiler identification is GNU 11.4.0
+[0.084s] -- Detecting C compiler ABI info
+[0.128s] -- Detecting C compiler ABI info - done
+[0.133s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.133s] -- Detecting C compile features
+[0.133s] -- Detecting C compile features - done
+[0.135s] -- Detecting CXX compiler ABI info
+[0.186s] -- Detecting CXX compiler ABI info - done
+[0.190s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.190s] -- Detecting CXX compile features
+[0.191s] -- Detecting CXX compile features - done
+[0.192s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.282s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.317s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.336s] -- Found urdf: 2.6.1 (/opt/ros/humble/share/urdf/cmake)
+[0.373s] -- Found xacro: 2.1.1 (/opt/ros/humble/share/xacro/cmake)
+[0.374s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.420s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.421s] -- Added test 'lint_cmake' to check CMake code style
+[0.422s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.423s] -- Added test 'xmllint' to check XML markup files
+[0.423s] -- Configuring done
+[0.425s] -- Generating done
+[0.426s] -- Build files have been written to: /home/won/fastcam_ws/build/my_box_bot_description
+[0.432s] Invoked command in '/home/won/fastcam_ws/build/my_box_bot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/won/fastcam_ws/src/my_box_bot_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/won/fastcam_ws/install/my_box_bot_description
+[0.432s] Invoking command in '/home/won/fastcam_ws/build/my_box_bot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/won/fastcam_ws/build/my_box_bot_description -- -j16 -l16
+[0.458s] Invoked command in '/home/won/fastcam_ws/build/my_box_bot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/won/fastcam_ws/build/my_box_bot_description -- -j16 -l16
+[0.458s] Invoking command in '/home/won/fastcam_ws/build/my_box_bot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/won/fastcam_ws/build/my_box_bot_description
+[0.463s] -- Install configuration: ""
+[0.464s] -- Execute custom install script
+[0.464s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description//urdf/box_bot_geometric.urdf
+[0.470s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description//urdf/box_bot_meshes.urdf
+[0.475s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description//urdf/box_bot_meshes_collisions_inertias.urdf
+[0.481s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description//urdf/box_bot_meshes_physical_control.urdf
+[0.486s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description//urdf/box_bot_meshes_physical_properties.urdf
+[0.492s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description//rviz/urdf_vis.rviz
+[0.498s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description//launch/urdf_visualize_geometric.launch.py
+[0.503s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description//launch/urdf_visualize_meshes.launch.py
+[0.508s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description//launch/urdf_visualize_meshes_collisions_inertias.launch.py
+[0.513s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description//launch/urdf_visualize_meshes_control.launch.py
+[0.519s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description//launch/urdf_visualize_meshes_physical.launch.py
+[0.524s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description//meshes/cute_cube.blend
+[0.530s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description//meshes/cute_cube.dae
+[0.535s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description//meshes/lambert3_baseColor.png
+[0.540s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description//meshes/sensors/realsense.dae
+[0.545s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description//meshes/sensors/rplidar.dae
+[0.550s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description//meshes/sensors/rplidartexture.png
+[0.556s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description//meshes/textures/lambert3_baseColor.png
+[0.562s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/ament_index/resource_index/package_run_dependencies/my_box_bot_description
+[0.567s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/ament_index/resource_index/parent_prefix_path/my_box_bot_description
+[0.572s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description/environment/ament_prefix_path.sh
+[0.577s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description/environment/ament_prefix_path.dsv
+[0.584s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description/environment/path.sh
+[0.589s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description/environment/path.dsv
+[0.595s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description/local_setup.bash
+[0.601s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description/local_setup.sh
+[0.606s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description/local_setup.zsh
+[0.612s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description/local_setup.dsv
+[0.617s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description/package.dsv
+[0.623s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/ament_index/resource_index/packages/my_box_bot_description
+[0.628s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description/cmake/my_box_bot_descriptionConfig.cmake
+[0.633s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description/cmake/my_box_bot_descriptionConfig-version.cmake
+[0.639s] -- Symlinking: /home/won/fastcam_ws/install/my_box_bot_description/share/my_box_bot_description/package.xml
+[0.647s] Invoked command in '/home/won/fastcam_ws/build/my_box_bot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/won/fastcam_ws/build/my_box_bot_description

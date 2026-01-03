@@ -1,0 +1,25 @@
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/urdf/mybot.urdf
+-- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/urdf/mybot_collision_inertia.urdf
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/meshes/base_link.dae
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/meshes/meshes.zip
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/meshes/wheel_type1.dae
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/meshes/wheel_type2.dae
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/launch/display_robot.launch.py
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/rviz/urdf_vis.rviz
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/ament_index/resource_index/package_run_dependencies/mybot_description
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/ament_index/resource_index/parent_prefix_path/mybot_description
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/environment/path.sh
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/environment/path.dsv
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/local_setup.bash
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/local_setup.sh
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/local_setup.zsh
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/local_setup.dsv
+-- Symlinking: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/package.dsv
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/ament_index/resource_index/packages/mybot_description
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/cmake/mybot_descriptionConfig.cmake
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/cmake/mybot_descriptionConfig-version.cmake
+-- Up-to-date symlink: /home/won/fastcam_ws/install/mybot_description/share/mybot_description/package.xml

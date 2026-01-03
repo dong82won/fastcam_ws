@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<robot name="mybot">
+    <!-- 재질 정의 -->
+    <material name="red">
+        <color rgba="1.0 0.0 0.0 1.0"/>
+    </material>
+
+    <!-- Base link -->
+    <link name="base_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://mybot_description/meshes/base_link.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <!-- Camera link -->
+    <link name="camera_link">
+        <visual>
+            <geometry>
+                <box size="0.02 0.02 0.02"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+    </link>
+
+    <joint name="camera_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="camera_link"/>
+        <origin xyz="0.40 0.0 0.04"/>
+    </joint>
+
+    <!-- Front right wheel -->
+    <link name="front_right_wheel_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://mybot_description/meshes/wheel_type1.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="front_right_wheel" type="continuous">
+        <parent link="base_link"/>
+        <child link="front_right_wheel_link"/>
+        <origin rpy="3.14 0 0" xyz="0.249 -0.29153 -0.0702"/>
+        <axis xyz="0 -1 0"/>
+    </joint>
+
+    <!-- Front left wheel -->
+    <link name="front_left_wheel_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://mybot_description/meshes/wheel_type2.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="front_left_wheel" type="continuous">
+        <parent link="base_link"/>
+        <child link="front_left_wheel_link"/>
+        <origin rpy="0 0 0" xyz="0.249 0.29153 -0.0702"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <!-- Rear left wheel -->
+    <link name="rear_left_wheel_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://mybot_description/meshes/wheel_type2.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="rear_left_wheel" type="continuous">
+        <parent link="base_link"/>
+        <child link="rear_left_wheel_link"/>
+        <origin rpy="0 0 0" xyz="-0.249 0.29153 -0.0702"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <!-- Rear right wheel -->
+    <link name="rear_right_wheel_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://mybot_description/meshes/wheel_type1.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="rear_right_wheel" type="continuous">
+        <parent link="base_link"/>
+        <child link="rear_right_wheel_link"/>
+        <origin rpy="3.14 0 0" xyz="-0.249 -0.29153 -0.0702"/>
+        <axis xyz="0 -1 0"/>
+    </joint>
+</robot>
