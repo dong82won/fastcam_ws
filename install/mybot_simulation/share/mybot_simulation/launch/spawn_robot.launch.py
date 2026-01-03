@@ -1,1 +1,0 @@
-/home/won/fastcam_ws/src/mybot_simulation/launch/spawn_robot.launch.py

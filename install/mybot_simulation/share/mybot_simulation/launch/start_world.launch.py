@@ -1,1 +1,0 @@
-/home/won/fastcam_ws/src/mybot_simulation/launch/start_world.launch.py

@@ -1,1 +1,0 @@
-/home/won/fastcam_ws/src/mybot_description/launch/display_robot.launch.py

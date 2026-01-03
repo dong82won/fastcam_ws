@@ -1,1 +1,0 @@
-/home/won/fastcam_ws/build/my_box_bot_description/ament_cmake_core/my_box_bot_descriptionConfig-version.cmake

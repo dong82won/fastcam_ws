@@ -1,1 +1,0 @@
-/home/won/fastcam_ws/build/mybot_description/ament_cmake_environment_hooks/local_setup.zsh
