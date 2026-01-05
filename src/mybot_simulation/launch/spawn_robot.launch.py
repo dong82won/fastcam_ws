@@ -13,7 +13,11 @@ def generate_launch_description():
     pkg_mybot_description = get_package_share_directory('mybot_description')
 
     # URDF 파일 경로
-    urdf_path = os.path.join(pkg_mybot_description, 'urdf', 'mybot_collision_inertia.urdf')
+    # urdf_path = os.path.join(pkg_mybot_description, 'urdf', 'mybot_collision_inertia.urdf')
+    # urdf_path = os.path.join(pkg_mybot_description, 'urdf', 'mybot_collision_inertia_gazebo.urdf')
+    # urdf_path = os.path.join(pkg_mybot_description, 'urdf', 'mybot_collision_inertia_gazebo_plugin.urdf')
+
+    urdf_path = os.path.join(pkg_mybot_description, 'urdf', 'mybot_collision_plugin_sensor.urdf')
 
     # URDF 내용을 읽어오기 위한 Command 객체
     robot_desc = ParameterValue(Command(['cat ', urdf_path]), value_type=str)
