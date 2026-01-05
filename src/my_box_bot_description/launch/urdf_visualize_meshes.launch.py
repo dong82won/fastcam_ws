@@ -8,7 +8,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
 
     ####### DATA INPUT ##########
-    urdf_file = 'box_bot_meshes.urdf'    
+    urdf_file = 'box_bot_meshes.urdf' 
     package_description = "my_box_bot_description"
 
     ####### DATA INPUT END ##########
