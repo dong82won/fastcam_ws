@@ -12,11 +12,11 @@ from launch.conditions import IfCondition
 
 def generate_launch_description():
     # 패키지 경로
-    pkg_mybot_simulation = get_package_share_directory('mybot_simulation')
-    pkg_mybot_description = get_package_share_directory('mybot_description')
+    pkg_boxbot_simulation = get_package_share_directory('boxbot_simulation')
+    pkg_my_box_bot_description = get_package_share_directory('my_box_bot_description')
 
     # RViz 설정 파일 경로
-    rviz_config_path = os.path.join(pkg_mybot_description, 'rviz', 'urdf_vis.rviz')
+    rviz_config_path = os.path.join(pkg_my_box_bot_description, 'rviz', 'urdf_vis.rviz')
 
     # 파라미터 선언
     x_pose_arg = DeclareLaunchArgument(
@@ -48,14 +48,14 @@ def generate_launch_description():
     # world 런치 파일
     world_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(pkg_mybot_simulation, 'launch', 'start_world2.launch.py')
+            os.path.join(pkg_boxbot_simulation, 'launch', 'start_world.launch.py')
         )
     )
 
     # spawn launch 파일
     spawn_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(pkg_mybot_simulation, 'launch', 'spawn_robot.launch.py')
+            os.path.join(pkg_boxbot_simulation, 'launch', 'spawn_robot.launch.py')
         ),
         launch_arguments={
             'x_pose': x_pose,

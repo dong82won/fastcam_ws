@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
-project(mybot_simulation)
-        
+project(boxbot_simulation)
+
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
@@ -9,9 +9,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclpy REQUIRED)
 find_package(gazebo_ros REQUIRED)
-find_package(mybot_description REQUIRED)
-
-# # find_package(aws_robomaker_small_house_world REQUIRED)
+find_package(my_box_bot_description REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -30,6 +28,7 @@ install(
     launch
     worlds
     models
+  
   DESTINATION
     share/${PROJECT_NAME}/
 )
