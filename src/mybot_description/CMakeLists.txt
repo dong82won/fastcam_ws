@@ -13,7 +13,11 @@ find_package(xacro REQUIRED)
 
 # 디렉토리 설치
 install(
-  DIRECTORY urdf meshes launch rviz
+  DIRECTORY 
+    urdf
+    meshes
+    launch
+    rviz
   DESTINATION share/${PROJECT_NAME}
 )
 
