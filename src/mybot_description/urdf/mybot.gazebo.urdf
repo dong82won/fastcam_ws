@@ -5,6 +5,13 @@
         <color rgba="1.0 0.0 0.0 1.0"/>
     </material>
 
+    <link name="base_footprint"/>
+    <joint name="base_joint" type="fixed">
+        <parent link="base_footprint"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 0.2352" rpy="0 0 0"/>
+    </joint>
+
     <!-- Base link -->
     <link name="base_link">
         <visual>
@@ -31,6 +38,7 @@
             <inertia ixx="2.288641" ixy="0" ixz="0" iyy="5.103976" iyz="0" izz="3.431465"/>
         </inertial>
     </link>
+
     <!-- Gazebo 속성: 베이스 링크 -->
     <gazebo reference="base_link">
         <mu1>0.2</mu1>
@@ -43,7 +51,6 @@
             <geometry>
                 <box size="0.02 0.02 0.02"/>
             </geometry>
-            <!-- Rviz 시각화용 -->
             <material name="red"/>
         </visual>
         <collision>
@@ -56,13 +63,10 @@
             <inertia ixx="0.000083" ixy="0" ixz="0" iyy="0.000083" iyz="0" izz="0.000083"/>
         </inertial>
     </link>
+
     <!-- Gazebo 속성: 카메라 링크 (색상 추가) -->
     <gazebo reference="camera_link">
         <material>Gazebo/Red</material>
-        <ambient>1 0 0 1</ambient><!-- 주변광 반사 -->
-        <diffuse>1 0 0 1</diffuse><!-- 직접광 반사 -->
-        <specular>0.1 0.1 0.1 1</specular><!-- 반사광 -->
-        <emissive>0 0 0 0</emissive><!-- 자체 발광 -->
     </gazebo>
 
     <joint name="camera_joint" type="fixed">
@@ -92,9 +96,10 @@
 
     <!-- Gazebo 속성: 바퀴 링크 -->
     <gazebo reference="front_right_wheel_link">
-        <mu1>0.8</mu1>
-        <mu2>0.5</mu2>
+        <mu1>0.3</mu1>
+        <mu2>0.2</mu2>
     </gazebo>
+
     <joint name="front_right_wheel" type="continuous">
         <parent link="base_link"/>
         <child link="front_right_wheel_link"/>
@@ -121,10 +126,11 @@
             <inertia ixx="0.1171" ixy="0" ixz="0" iyy="0.1361" iyz="0" izz="0.1171"/>
         </inertial>
     </link>
+
     <!-- Gazebo 속성: 바퀴 링크 -->
     <gazebo reference="front_left_wheel_link">
-        <mu1>0.8</mu1>
-        <mu2>0.5</mu2>
+        <mu1>0.3</mu1>
+        <mu2>0.2</mu2>
     </gazebo>
 
     <joint name="front_left_wheel" type="continuous">
@@ -153,11 +159,13 @@
             <inertia ixx="0.1171" ixy="0" ixz="0" iyy="0.1361" iyz="0" izz="0.1171"/>
         </inertial>
     </link>
+
     <!-- Gazebo 속성: 바퀴 링크 -->
     <gazebo reference="rear_left_wheel_link">
-        <mu1>0.8</mu1>
-        <mu2>0.5</mu2>
+        <mu1>0.3</mu1>
+        <mu2>0.2</mu2>
     </gazebo>
+
     <joint name="rear_left_wheel" type="continuous">
         <parent link="base_link"/>
         <child link="rear_left_wheel_link"/>
@@ -184,10 +192,11 @@
             <inertia ixx="0.1171" ixy="0" ixz="0" iyy="0.1361" iyz="0" izz="0.1171"/>
         </inertial>
     </link>
+
     <!-- Gazebo 속성: 바퀴 링크 -->
     <gazebo reference="rear_right_wheel_link">
-        <mu1>0.8</mu1>
-        <mu2>0.5</mu2>
+        <mu1>0.3</mu1>
+        <mu2>0.2</mu2>
     </gazebo>
 
     <joint name="rear_right_wheel" type="continuous">
@@ -198,4 +207,154 @@
         <dynamics damping="0.0" friction="20"/>
     </joint>
 
+    <!-- diff_drive 플러그인 적용 -->
+    <gazebo>
+        <plugin filename="libgazebo_ros_diff_drive.so" name="diff_drive">
+            <ros>
+                <namespace>/</namespace>
+                <remapping>cmd_vel:=cmd_vel</remapping>
+                <remapping>odom:=odom</remapping>
+            </ros>
+
+            <!-- 업데이트 빈도 -->
+            <update_rate>30</update_rate>
+
+            <!-- 바퀴 수 및 조인트 설정 -->
+            <num_wheel_pairs>2</num_wheel_pairs>
+            <left_joint>front_left_wheel</left_joint>
+            <right_joint>front_right_wheel</right_joint>
+            <left_joint>rear_left_wheel</left_joint>
+            <right_joint>rear_right_wheel</right_joint>
+
+            <!-- 바퀴 사이 거리 및 직경 -->
+            <wheel_separation>0.58306</wheel_separation>
+            <wheel_diameter>0.33</wheel_diameter>
+
+            <!-- 토크 및 속도 제한 -->
+            <max_wheel_torque>1000</max_wheel_torque>
+            <max_wheel_acceleration>1.0</max_wheel_acceleration>
+
+            <!-- 발행 옵션 -->
+            <publish_odom>true</publish_odom>
+            <publish_odom_tf>true</publish_odom_tf>
+            <publish_wheel_tf>false</publish_wheel_tf>
+
+            <!-- 프레임 설정 -->
+            <odometry_frame>odom</odometry_frame>
+            <robot_base_frame>base_footprint</robot_base_frame>
+        </plugin>
+    </gazebo>
+
+    <!-- joint_state_publisher 플러그인 적용 -->
+    <gazebo>
+        <plugin filename="libgazebo_ros_joint_state_publisher.so" name="joint_state_publisher">
+            <ros>
+                <remapping>~/out:=joint_states</remapping>
+            </ros>
+            <update_rate>30</update_rate>
+            <joint_name>front_left_wheel</joint_name>
+            <joint_name>front_right_wheel</joint_name>
+            <joint_name>rear_left_wheel</joint_name>
+            <joint_name>rear_right_wheel</joint_name>
+        </plugin>
+    </gazebo>
+
+    <!-- 2D LiDAR Link -->
+    <link name="lidar_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.03" length="0.1"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.03" length="0.1"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1"/>
+            <inertia ixx="0.000045" ixy="0" ixz="0" iyy="0.000045" iyz="0" izz="0.000075"/>
+        </inertial>
+    </link>
+
+    <joint name="lidar_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="lidar_link"/>
+        <origin xyz="0 0 0.13" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Gazebo 속성: LiDAR 링크 -->
+    <gazebo reference="lidar_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <!-- Gazebo 플러그인: 2D LiDAR -->
+    <gazebo reference="lidar_link">
+        <sensor type="ray" name="lidar_sensor">
+            <pose>0 0 0 0 0 0</pose>
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>360</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-3.14159</min_angle>
+                        <max_angle>3.14159</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.10</min>
+                    <max>10.0</max>
+                    <resolution>0.01</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.01</stddev>
+                </noise>
+            </ray>
+            <plugin name="lidar_controller" filename="libgazebo_ros_ray_sensor.so">
+                <ros>
+                    <namespace>/</namespace>
+                    <remapping>~/out:=scan</remapping>
+                </ros>
+                <output_type>sensor_msgs/LaserScan</output_type>
+                <frame_name>lidar_link</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+    <!-- Gazebo 플러그인: RGB 카메라 -->
+    <gazebo reference="camera_link">
+        <material>Gazebo/Red</material>
+        <sensor type="camera" name="camera_sensor">
+            <update_rate>30.0</update_rate>
+            <camera name="camera">
+                <horizontal_fov>1.3962634</horizontal_fov>
+                <image>
+                    <width>640</width>
+                    <height>480</height>
+                    <format>R8G8B8</format>
+                </image>
+                <clip>
+                    <near>0.02</near>
+                    <far>300</far>
+                </clip>
+            </camera>
+            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+                <ros>
+                    <namespace>/</namespace>
+                    <remapping>camera/image_raw:=camera/image</remapping>
+                    <remapping>camera/camera_info:=camera/camera_info</remapping>
+                </ros>
+                <camera_name>camera</camera_name>
+                <frame_name>camera_link</frame_name>
+                <hack_baseline>0.07</hack_baseline>
+            </plugin>
+        </sensor>
+    </gazebo>
 </robot>

@@ -7,8 +7,7 @@ from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
     # 패키지 경로 및 파일 위치 설정
-    pkg_share = FindPackageShare('mybot_description')
-    #urdf_path = PathJoinSubstitution([pkg_share, 'urdf/mybot.urdf'])
+    pkg_share = FindPackageShare('mybot_description')    
     urdf_path = PathJoinSubstitution([pkg_share, 'urdf/mybot.urdf'])
 
     default_rviz_config_path = PathJoinSubstitution([pkg_share, 'rviz/urdf_vis.rviz'])

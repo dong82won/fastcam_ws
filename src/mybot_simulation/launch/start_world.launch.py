@@ -12,7 +12,7 @@ from ament_index_python.packages import get_package_prefix
 def generate_launch_description():
 
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
-    pkg_mybot_simulation = get_package_share_directory('mybot_simulation')   
+    pkg_mybot_simulation = get_package_share_directory('mybot_simulation')
 
     # We get the whole install dir
     # We do this to avoid having to copy or softlink manually the packages so that gazebo can find them
@@ -51,7 +51,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         DeclareLaunchArgument(
-            'world',            
+            'world',
             default_value=[os.path.join(pkg_mybot_simulation, 'worlds', 'small_house.world'), ''],
             description='SDF world file'),
             gazebo

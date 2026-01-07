@@ -13,11 +13,12 @@ def generate_launch_description():
     pkg_mybot_description = get_package_share_directory('mybot_description')
 
     # URDF 파일 경로
-    # urdf_path = os.path.join(pkg_mybot_description, 'urdf', 'mybot_collision_inertia.urdf')
-    # urdf_path = os.path.join(pkg_mybot_description, 'urdf', 'mybot_collision_inertia_gazebo.urdf')
-    # urdf_path = os.path.join(pkg_mybot_description, 'urdf', 'mybot_collision_inertia_gazebo_plugin.urdf')
+    urdf_path = os.path.join(pkg_mybot_description, 'urdf', 'mybot.gazebo.urdf')
 
-    urdf_path = os.path.join(pkg_mybot_description, 'urdf', 'mybot_collision_plugin_sensor.urdf')
+    # 파라미터 참조 (상위 런치 파일에서 정의됨)
+    x_pose = LaunchConfiguration('x_pose')
+    y_pose = LaunchConfiguration('y_pose')
+    z_pose = LaunchConfiguration('z_pose')
 
     # URDF 내용을 읽어오기 위한 Command 객체
     robot_desc = ParameterValue(Command(['cat ', urdf_path]), value_type=str)
@@ -28,11 +29,6 @@ def generate_launch_description():
         executable='robot_state_publisher',
         parameters=[{'robot_description': robot_desc}]
     )
-
-    # 파라미터 참조 (상위 런치 파일에서 정의됨)
-    x_pose = LaunchConfiguration('x_pose')
-    y_pose = LaunchConfiguration('y_pose')
-    z_pose = LaunchConfiguration('z_pose')
 
     # 로봇 모델 spawn 노드
     spawn_entity_node = Node(

@@ -17,26 +17,11 @@ def generate_launch_description():
     # RViz 설정 파일
     rviz_config_path = os.path.join(pkg_mybot_description, 'rviz', 'urdf_vis.rviz')
 
-    # 파라미터 선언
-    x_pose_arg = DeclareLaunchArgument(
-        'x_pose', default_value='0.0',
-        description='X position of the robot'
-    )
-
-    y_pose_arg = DeclareLaunchArgument(
-        'y_pose', default_value='0.0',
-        description='Y position of the robot'
-    )
-
-    z_pose_arg = DeclareLaunchArgument(
-        'z_pose', default_value='2.0',
-        description='Z position of the robot'
-    )
-
-    use_rviz_arg = DeclareLaunchArgument(
-        'use_rviz', default_value='true',
-        description='Whether to start RViz'
-    )
+    # 1. 파라미터 선언
+    x_pose_arg = DeclareLaunchArgument('x_pose', default_value='0.0')
+    y_pose_arg = DeclareLaunchArgument('y_pose', default_value='0.0')
+    z_pose_arg = DeclareLaunchArgument('z_pose', default_value='0.5')
+    use_rviz_arg = DeclareLaunchArgument('use_rviz', default_value='true')
 
     # 2. 파라미터 값 참조
     x_pose = LaunchConfiguration('x_pose')
@@ -44,26 +29,27 @@ def generate_launch_description():
     z_pose = LaunchConfiguration('z_pose')
     use_rviz = LaunchConfiguration('use_rviz')
 
-    # 3. 월드 실행
+    # 3. 월드 실행 (start_world2.launch.py)
     world_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(pkg_mybot_simulation, 'launch', 'start_world.launch.py')
+            os.path.join(pkg_mybot_simulation, 'launch', 'start_world_complete.launch.py')
         )
     )
 
     # 4. 로봇 스폰 실행
     spawn_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(pkg_mybot_simulation, 'launch', 'spawn_robot.launch.py')
+            os.path.join(pkg_mybot_simulation, 'launch', 'spawn_robot_complete.launch.py')
         ),
         launch_arguments={
             'x_pose': x_pose,
             'y_pose': y_pose,
-            'z_pose': z_pose
+            'z_pose': z_pose,
+            'use_sim_time': 'true'
         }.items()
     )
 
-    # RViz
+    # 5. RViz 실행
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',
@@ -75,7 +61,6 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        # params
         x_pose_arg,
         y_pose_arg,
         z_pose_arg,
