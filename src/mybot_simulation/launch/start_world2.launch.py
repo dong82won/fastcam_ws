@@ -18,17 +18,19 @@ def generate_launch_description():
     install_dir = get_package_prefix(description_package_name)
 
     gazebo_models_path = os.path.join(pkg_mybot_simulation, 'models', 'small_house')
-    my_models_path = os.path.join(pkg_mybot_simulation, 'models', 'my_building')
+    my_models_path = os.path.join(pkg_mybot_simulation, 'models')
 
     if 'GAZEBO_MODEL_PATH' in os.environ:
         os.environ['GAZEBO_MODEL_PATH'] =  os.environ['GAZEBO_MODEL_PATH']  \
                                             + ':' + install_dir + '/share'  \
+                                            + ':' + my_models_path          \
                                             + ':' + gazebo_models_path      \
-                                            + ':' + my_models_path
+
     else:
-        os.environ['GAZEBO_MODEL_PATH'] = install_dir +'/share'      \
-                                        +':' + gazebo_models_path    \
-                                        + ':' + my_models_path
+        os.environ['GAZEBO_MODEL_PATH'] = install_dir +'/share'          \
+                                            + ':' + my_models_path       \
+                                            +':' + gazebo_models_path    \
+
 
     if 'GAZEBO_PLUGIN_PATH' in os.environ:
         os.environ['GAZEBO_PLUGIN_PATH'] = os.environ['GAZEBO_PLUGIN_PATH'] \
@@ -49,7 +51,7 @@ def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument(
             'world',
-            default_value=[os.path.join(pkg_mybot_simulation, 'worlds', 'my_room.world'), ''],
+            default_value=[os.path.join(pkg_mybot_simulation, 'worlds', 'small_house.world'), ''],
             description='SDF world file'),
             gazebo
     ])

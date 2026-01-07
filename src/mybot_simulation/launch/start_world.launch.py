@@ -12,8 +12,7 @@ from ament_index_python.packages import get_package_prefix
 def generate_launch_description():
 
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
-    pkg_mybot_simulation = get_package_share_directory('mybot_simulation')
-    pkg_small_house = get_package_share_directory('aws_robomaker_small_house_world')
+    pkg_mybot_simulation = get_package_share_directory('mybot_simulation')   
 
     # We get the whole install dir
     # We do this to avoid having to copy or softlink manually the packages so that gazebo can find them
@@ -22,12 +21,17 @@ def generate_launch_description():
 
     # Set the path to the WORLD model files. Is to find the models inside the models folder in my_box_bot_gazebo package
     gazebo_models_path = os.path.join(pkg_mybot_simulation, 'models')
-    house_models_path = os.path.join(pkg_small_house, 'models')
+    house_models_path = os.path.join(pkg_mybot_simulation, 'models', 'small_house')
 
     if 'GAZEBO_MODEL_PATH' in os.environ:
-        os.environ['GAZEBO_MODEL_PATH'] =  os.environ['GAZEBO_MODEL_PATH'] + ':' + install_dir + '/share' + ':' + gazebo_models_path + ':' + house_models_path
+        os.environ['GAZEBO_MODEL_PATH'] =  os.environ['GAZEBO_MODEL_PATH'] \
+                                            + ':' + install_dir + '/share' \
+                                            + ':' + gazebo_models_path     \
+                                            + ':' + house_models_path
     else:
-        os.environ['GAZEBO_MODEL_PATH'] =  install_dir + "/share" + ':' + gazebo_models_path + ':' + house_models_path
+        os.environ['GAZEBO_MODEL_PATH'] =  install_dir + "/share"       \
+                                            + ':' + gazebo_models_path  \
+                                            + ':' + house_models_path   \
 
     if 'GAZEBO_PLUGIN_PATH' in os.environ:
         os.environ['GAZEBO_PLUGIN_PATH'] = os.environ['GAZEBO_PLUGIN_PATH'] + ':' + install_dir + '/lib'
@@ -47,9 +51,8 @@ def generate_launch_description():
 
     return LaunchDescription([
         DeclareLaunchArgument(
-            'world',
-            # default_value=[os.path.join(pkg_mybot_simulation, 'worlds', 'my_world.world'), ''],
-            default_value=[os.path.join(pkg_small_house, 'worlds', 'small_house.world'), ''],
+            'world',            
+            default_value=[os.path.join(pkg_mybot_simulation, 'worlds', 'small_house.world'), ''],
             description='SDF world file'),
             gazebo
     ])
