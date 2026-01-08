@@ -11,7 +11,7 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 def generate_launch_description():
     pkg_description = get_package_share_directory('mybot_description')
-    xacro_file = os.path.join(pkg_description, 'urdf', 'mybot.xacro')
+    xacro_file = os.path.join(pkg_description, 'urdf', 'mybot2.xacro')
 
     # 1. 인자 선언 (이 부분이 있어야 상위 파일에서 값을 받아올 수 있습니다)
     # 기본값(default_value)을 설정해두어 단독 실행 시에도 에러가 안 나게 함

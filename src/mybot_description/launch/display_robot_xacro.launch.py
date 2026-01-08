@@ -1,27 +1,29 @@
+import os
+from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import Command, LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
-from launch_ros.substitutions import FindPackageShare
 # 1. ParameterValue 임포트 추가
 from launch_ros.parameter_descriptions import ParameterValue
 
 def generate_launch_description():
-    # 패키지 경로 및 파일 위치 설정 [cite: 1]
-    pkg_share = FindPackageShare('mybot_description')
-    urdf_path = PathJoinSubstitution([pkg_share, 'urdf/mybot.urdf'])
-    default_rviz_config_path = PathJoinSubstitution([pkg_share, 'rviz/urdf_vis.rviz'])
+
+    pkg_description = get_package_share_directory('mybot_description')
+    xacro_file = os.path.join(pkg_description, 'urdf', 'mybot2.xacro')
+
+    # 3. 로봇 모델 처리 (Xacro -> URDF 문자열 변환)
+    robot_description_content = ParameterValue(
+        Command(['xacro ', xacro_file]),
+        value_type=str
+    )
+
+    default_rviz_config_path = PathJoinSubstitution([pkg_description, 'rviz/urdf_vis.rviz'])
 
     rviz_config_arg = DeclareLaunchArgument(
         'rviz_config',
         default_value=default_rviz_config_path,
         description='Absolute path to rviz config file'
-    )
-
-    # 2. Command 결과를 ParameterValue로 감싸고 타입을 str로 지정
-    robot_description_content = ParameterValue(
-        Command(['cat ', urdf_path]),
-        value_type=str
     )
 
     robot_state_publisher_node = Node(
