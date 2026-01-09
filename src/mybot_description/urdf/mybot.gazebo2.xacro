@@ -27,7 +27,7 @@
     <gazebo reference="base_link">
         <mu1>${base_mu1}</mu1>
         <mu2>${base_mu2}</mu2>
-        <material>Gazebo/Grey</material>
+        <!-- <material>Gazebo/Grey</material> -->
     </gazebo>
 
     <gazebo reference="camera_link">

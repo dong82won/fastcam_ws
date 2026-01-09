@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <robot name="cybertruck" version="1.0">
 
 
@@ -7,8 +8,6 @@
       <child link="base_link"/>
       <origin xyz="0 0 0.2352" rpy="0 0 0"/>
   </joint>
-
-
 
   <joint name="front_left_wheel" type="continuous">
     <limit effort="0.00000" velocity="0.00000"/>
@@ -147,7 +146,6 @@
       </geometry>
     </visual>
   </link>
-
 
   <material name="Material">
     <color rgba="0.80000 0.03922 0.01961 1.00000"/>
