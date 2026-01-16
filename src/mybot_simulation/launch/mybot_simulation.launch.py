@@ -59,11 +59,12 @@ def generate_launch_description():
         launch_arguments={
             'x_pose': x_pose,
             'y_pose': y_pose,
-            'z_pose': z_pose
+            'z_pose': z_pose,
+            'use_sim_time': 'true'
         }.items()
     )
 
-    # RViz
+    # 5. RViz 실행
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',

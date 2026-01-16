@@ -10,7 +10,10 @@ from launch_ros.parameter_descriptions import ParameterValue
 def generate_launch_description():
 
     pkg_description = get_package_share_directory('mybot_description')
-    xacro_file = os.path.join(pkg_description, 'urdf', 'mybot2.xacro')
+
+    # xacro_file = os.path.join(pkg_description, 'urdf', 'mybot2.xacro')
+    # xacro_file = os.path.join(pkg_description, 'urdf', 'mybot3_cam.xacro')
+    xacro_file = os.path.join(pkg_description, 'urdf', 'test.urdf.xacro')
 
     # 3. 로봇 모델 처리 (Xacro -> URDF 문자열 변환)
     robot_description_content = ParameterValue(
