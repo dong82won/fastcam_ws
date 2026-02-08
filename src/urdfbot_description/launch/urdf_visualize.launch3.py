@@ -68,7 +68,7 @@ def generate_launch_description():
         executable='v4l2_camera_node',
         name='camera_node',
         parameters=[{
-            'video_device': '/dev/video6',  # 장치 경로
+            'video_device': '/dev/video0',  # 장치 경로
             'image_size': [640, 480],       # 해상도 (리스트 형태)
             'pixel_format': 'YUYV',         # 픽셀 포맷
             'output_encoding': 'rgb8'       # 출력 인코딩

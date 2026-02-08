@@ -9,7 +9,7 @@ from launch_ros.parameter_descriptions import ParameterValue
 # this is the function launch  system will look for
 def generate_launch_description():
 
-    urdf_file = 'urdfbot_simple.urdf'
+    urdf_file = 'urdfbot_simple1.urdf'
     package_description = "urdfbot_description"
 
     print("Fetching URDF ==>")

@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
   <model name="aws_robomaker_residential_AirconditionerA_01">
+    <static>true</static>
     <link name="link">
       <inertial>
         <mass>1</mass>
@@ -14,7 +15,7 @@
         </geometry>
       </collision>
       <visual name="visual">
-	    <geometry>
+        <geometry>
           <mesh>
             <uri>model://aws_robomaker_residential_AirconditionerA_01/meshes/aws_AirconditionerA_01_visual.DAE</uri>
           </mesh>

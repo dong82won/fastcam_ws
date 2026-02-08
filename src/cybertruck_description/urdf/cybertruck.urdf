@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <robot name="cybertruck" version="1.0">
 
-
   <link name="base_footprint"/>
   <joint name="base_joint" type="fixed">
       <parent link="base_footprint"/>

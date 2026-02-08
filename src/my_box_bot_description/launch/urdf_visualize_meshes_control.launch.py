@@ -8,7 +8,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
 
     # 1 
-    urdf_file = 'box_bot_meshes_physical_control.urdf'
+    urdf_file = 'box_bot_meshes.urdf'
     package_description = "my_box_bot_description"
     print("Fetching URDF ==>")
     robot_desc_path = os.path.join(get_package_share_directory(package_description), "urdf", urdf_file)
