@@ -16,7 +16,7 @@ def generate_launch_description():
 
     # RViz 설정 파일
     rviz_config_path = os.path.join(pkg_mybot_description, 'rviz', 'urdf_vis.rviz')
-    
+
     # 파라미터 선언
     x_pose_arg = DeclareLaunchArgument(
         'x_pose', default_value='0.0',
