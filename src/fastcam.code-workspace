@@ -1,10 +1,10 @@
 {
 	"folders": [
 		{
-			"path": "src"
+			"path": "."
 		},
 		{
-			"path": "../external_ws/src/realsense-ros/realsense2_description"
+			"path": "../../external_ws/src/realsense-ros/realsense2_description"
 		}
 	],
 	"settings": {
