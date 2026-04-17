@@ -8,6 +8,7 @@
 
   <xacro:include filename="$(find realsense2_description)/urdf/_d435i.urdf.xacro" />
 
+
   <link name="base_link">
     <visual>
       <geometry>

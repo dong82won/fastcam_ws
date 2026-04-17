@@ -5,8 +5,7 @@
     <material name="black"><color rgba="0.0 0.0 0.0 1"/></material>
     <material name="green_dark"><color rgba="0.0 0.5 0.0 1"/></material>
     <material name="orange"><color rgba="1.0 0.5 0.0 1.0"/></material>
-    <material name="box_bot_blue"><color rgba="0.088656 0.428691 0.491021 1"/></material> 
-
+    <material name="box_bot_blue"><color rgba="0.088656 0.428691 0.491021 1"/></material>
 
     <link name="base_footprint"/>
 
@@ -33,7 +32,6 @@
         <parent link="base_footprint" />
         <child link="base_link" />
     </joint>
-
 
     <link name="left_wheel_link">
         <visual>
@@ -130,7 +128,6 @@
             <inertia ixx="4e-07" ixy="0" ixz="0" iyy="4e-07" iyz="0" izz="4e-07"/>
         </inertial>
     </link>
-
     <joint name="front_caster_joint" type="fixed">
         <parent link="base_link"/>
         <child link="front_caster_link"/>
@@ -170,6 +167,36 @@
         <material>Gazebo/Purple</material>
     </gazebo>
 
+    <!-- Camear Control -->
+    <link name="camera_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_box_bot_description/meshes/sensors/realsense.dae" scale="1.0 1.0 1.0"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.02 0 -0.015" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.04 0.17 0.03"/>
+            </geometry>
+        </collision>
+        <inertial>
+    <mass value="0.1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <inertia ixx="0.00024833" ixy="0" ixz="0"
+            iyy="0.00002083" iyz="0"
+            izz="0.00025417"/>
+</inertial>
+    </link>
+
+    <joint name="camera_link_joint" type="fixed">
+        <origin xyz="0.08 0 0.06" rpy="0 -0.2 0"/>
+        <parent link="base_link"/>
+        <child link="camera_link"/>
+    </joint>
+
+
     <!-- Laser Position Control -->
     <link name="laser_scan_link">
         <visual>
@@ -190,7 +217,6 @@
             <inertia ixx="6.066578520833334e-06" ixy="0" ixz="0" iyy="6.072950163333333e-06" iyz="0" izz="9.365128684166666e-06"/>
         </inertial>
     </link>
-
     <joint name="laser_scan_link_joint" type="continuous">
         <origin rpy="0 0 0" xyz="0 0 0.05"/>
         <parent link="base_link"/>
@@ -217,9 +243,8 @@
         <child link="imu_link"/>
     </joint>
 
-
     <gazebo>
-        <plugin name="box_bot_joint_state" filename="libgazebo_ros_joint_state_publisher.so">
+        <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
             <ros><remapping>~/out:=joint_states</remapping></ros>
             <update_rate>30</update_rate>
             <joint_name>left_wheel_joint</joint_name>
@@ -243,6 +268,39 @@
         </plugin>
     </gazebo>
 
+    <gazebo reference="camera_link">
+        <sensor name="camera" type="depth">
+            <visualize>true</visualize>
+            <update_rate>30.0</update_rate>
+            <camera name="camera">
+                <horizontal_fov>1.5184</horizontal_fov>
+                <image>
+                    <width>640</width>
+                    <height>480</height>
+                    <format>R8G8B8</format>
+                </image>
+                <clip>
+                    <near>0.1</near>
+                    <far>10.0</far>
+                </clip>
+            </camera>
+            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+                <ros>
+                    <!-- <namespace>camera</namespace> -->
+                    <remapping>camera/image_raw:=color/image_raw</remapping>
+                    <remapping>camera/depth/image_raw:=depth/image_rect_raw</remapping>
+                    <remapping>camera/camera_info:=color/camera_info</remapping>
+                    <remapping>camera/depth/camera_info:=depth/camera_info</remapping>
+                    <remapping>camera/points:=depth/color/points</remapping>
+                </ros>
+                <camera_name>d435i</camera_name>
+                <frame_name>camera_depth_optical_frame</frame_name> <hack_baseline>0.07</hack_baseline>
+                <min_depth>0.1</min_depth>
+                <max_depth>5.0</max_depth>
+            </plugin>
+        </sensor>
+    </gazebo>
+
     <gazebo reference="laser_scan_link">
         <sensor name="lidar" type="ray">
             <always_on>true</always_on>
@@ -252,15 +310,15 @@
                 <scan>
                     <horizontal>
                         <samples>360</samples>
-                        <resolution>1.000000</resolution>
-                        <min_angle>0.000000</min_angle>
-                        <max_angle>6.280000</max_angle>
+                        <resolution>1.0</resolution>
+                        <min_angle>0.00</min_angle>
+                        <max_angle>6.28</max_angle>
                     </horizontal>
                 </scan>
                 <range>
-                    <min>0.120000</min>
+                    <min>0.12</min>
                     <max>12.0</max>
-                    <resolution>0.015000</resolution>
+                    <resolution>0.015</resolution>
                 </range>
             </ray>
             <plugin name="scan_controller" filename="libgazebo_ros_ray_sensor.so">
@@ -328,6 +386,4 @@
             </plugin>
         </sensor>
     </gazebo>
-
-
 </robot>
