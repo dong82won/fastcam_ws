@@ -31,6 +31,9 @@ setup(
         'console_scripts': [
                 'service_client = client_pkg.service_client:main',
                 'motion_client = client_pkg.motion_service_client:main',
+                'motion2_client = client_pkg.motion2_service_client:main',
+                'keyboard_publisher = client_pkg.keyboard_publisher:main',
+                'service_server = client_pkg.service_server:main',
         ],
     },
 )
